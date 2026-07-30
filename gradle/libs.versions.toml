@@ -1,0 +1,17 @@
+[versions]
+loom = "1.17.+"
+
+minecraft = "26.2"
+# https://fabricmc.net/develop
+loader = "0.19.3"
+
+[libraries]
+# the minecraft dependency for the fabric project only.
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+loader = { module = "net.fabricmc:fabric-loader", version.ref = "loader" }
+
+[bundles]
+fabric = [ "loader" ]
+
+[plugins]
+loom = { id = "net.fabricmc.fabric-loom", version.ref = "loom" }

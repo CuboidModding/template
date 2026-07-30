@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "template",
+  "version": "${version}",
+  "name": "Template",
+  "description": "",
+  "authors": [
+    "maximumpower55"
+  ],
+  "contact": {
+    "homepage": "https://github.com/CuboidModding/template",
+    "sources": "https://github.com/CuboidModding/template",
+    "issues": "https://github.com/CuboidModding/template/issues"
+  },
+  "license": "LGPL-2.1-only",
+  "icon": "icon.png",
+  "entrypoints": {
+  },
+  "mixins": [
+    "template.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "=${minecraft_version}",
+    "fabricloader": ">=${loader_version}"
+  }
+}

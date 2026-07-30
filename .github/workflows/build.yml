@@ -1,0 +1,45 @@
+name: build
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      type:
+        type: choice
+        description: Type of build
+        required: true
+        options:
+          - normal
+          - snapshot
+          - release
+        default: normal
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: JDK Setup
+        uses: actions/setup-java@v5
+        with:
+          java-version: 25
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          validate-wrappers: true
+
+      - name: Make Gradle Wrapper Executable
+        run: chmod +x ./gradlew
+
+      - name: Build
+        run: ./gradlew build
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: Artifacts
+          path: build/libs/*.jar
