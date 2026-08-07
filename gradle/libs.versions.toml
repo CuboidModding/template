@@ -1,17 +1,36 @@
 [versions]
-loom = "1.17.+"
+loom = "1.18.+"
 
-minecraft = "26.2"
-# https://fabricmc.net/develop
-loader = "0.19.3"
+minecraft = "26.1.2"
+
+mixin = "0.16.5+mixin.0.8.7"
+mixin-extras = "0.5.3"
+
+# fabric - https://fabricmc.net/develop
+fabric_loader = "0.19.5"
+fabric_api = "0.155.3+26.1.2"
+
+# neoforge - https://neoforged.net/
+neoforge = "26.1.2.122"
+mdg = "2.0.+"
 
 [libraries]
-# the minecraft dependency for the fabric project only.
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
-loader = { module = "net.fabricmc:fabric-loader", version.ref = "loader" }
+
+mixin = { module = "net.fabricmc:sponge-mixin", version.ref = "mixin" }
+mixin-extras = { module = "io.github.llamalad7:mixinextras-common", version.ref = "mixin-extras" }
+
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
+
 
 [bundles]
-fabric = [ "loader" ]
+mixin = [ "mixin", "mixin-extras" ]
+fabric = [ "fabric-loader", "fabric-api" ]
 
 [plugins]
 loom = { id = "net.fabricmc.fabric-loom", version.ref = "loom" }
+mdg = { id = "net.neoforged.moddev", version.ref = "mdg" }
+
+configure-common = { id = "configure-common" }
+configure-platform = { id = "configure-platform" }
