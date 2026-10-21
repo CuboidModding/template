@@ -1,9 +1,9 @@
 [versions]
-loom = "1.17.+"
+loom = "1.18.+"
 
-minecraft = "26.2"
+minecraft = "26.3"
 # https://fabricmc.net/develop
-loader = "0.19.3"
+loader = "0.19.5"
 
 [libraries]
 # the minecraft dependency for the fabric project only.
